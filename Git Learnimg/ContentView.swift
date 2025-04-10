@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Button("Show Modal") {
+                Button("Show Model") {
                     self.isPresent = true
                 }
                 .sheet(isPresented: $isPresent) {
