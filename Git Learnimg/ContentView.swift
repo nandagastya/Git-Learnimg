@@ -7,19 +7,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isPresent: Bool = false
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Button("Show Model") {
-                    self.isPresent = true
-                }
-                .foregroundStyle(.red)
-                .sheet(isPresented: $isPresent) {
-                    ModelView()
-                }
-            }
+        NavigationView {
+            NavigationLink(destination: ModelView(), label: {
+                Text("Go Next")
+            })
             .navigationTitle("Xcode and Git")
             .padding()
         }
