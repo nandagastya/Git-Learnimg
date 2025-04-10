@@ -4,18 +4,24 @@
 //
 //  Created by Agastya Nand on 10/04/25.
 //
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPresent: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                Button("Show Modal") {
+                    self.isPresent = true
+                }
+                .sheet(isPresented: $isPresent) {
+                    ModelView()
+                }
+            }
+            .navigationTitle("Xcode and Git")
+            .padding()
         }
-        .padding()
     }
 }
 
